@@ -48,6 +48,41 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "ISR_Support.h"
 
 
+/* External Interrupt Instance 0 Interrupt */
+   .extern  IntHandlerExternalInterruptInstance0
+
+   .section	.vector_19,code, keep
+   .equ     __vector_dispatch_19, IntVectorExternalInterruptInstance0
+   .global  __vector_dispatch_19
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  IntVectorExternalInterruptInstance0
+
+IntVectorExternalInterruptInstance0:
+    la    $26,  _IntHandlerExternalInterruptInstance0         
+    jr    $26
+    nop
+	.end	IntVectorExternalInterruptInstance0
+
+   .section	.ExternalInterruptInstance0_vector_text, code, keep
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  _IntHandlerExternalInterruptInstance0
+
+_IntHandlerExternalInterruptInstance0:
+    portSAVE_CONTEXT
+    la    s6,  IntHandlerExternalInterruptInstance0
+    jalr  s6
+    nop
+    portRESTORE_CONTEXT
+    .end	_IntHandlerExternalInterruptInstance0
+
+
+
 /* TMR Instance 0 Interrupt */
    .extern  IntHandlerDrvTmrInstance0
 
@@ -226,9 +261,9 @@ _IntHandlerDrvUsartInstance0:
 
    .extern  IntHandlerDrvI2CInstance0
 
-   .section	.vector_25,code, keep
-   .equ     __vector_dispatch_25, IntVectorDrvI2CInstance0
-   .global  __vector_dispatch_25
+   .section	.vector_24,code, keep
+   .equ     __vector_dispatch_24, IntVectorDrvI2CInstance0
+   .global  __vector_dispatch_24
    .set     nomicromips
    .set     noreorder
    .set     nomips16

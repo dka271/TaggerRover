@@ -353,7 +353,7 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/milestone1</Path>
-        <Checksum>EBFF8FEAE6BAC00D983E2AEB60E6BD5A</Checksum>
+        <Checksum>76C7B25EB716FF443DD9FF9D13B84933</Checksum>
       </Template>
       <Template>
         <Name>flagcapture.h</Name>
@@ -371,13 +371,13 @@
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/milestone1</Path>
-        <Checksum>06DCD141AB8DC29889C3853A6FF9F5FB</Checksum>
-        <ProjectFileChecksum>FB0B5FC54763A66DEA6980B6DF310FC0</ProjectFileChecksum>
+        <Checksum>EC8820EB27110F180924533950CB1B00</Checksum>
+        <ProjectFileChecksum>8EF68F1ACFFEF17562E6C1A07F6F6DFC</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
         <Path>Source Files/app/system_config/milestone1</Path>
-        <Checksum>BA4EFAAE766D4F8F7DFEFDDADA2B6BAF</Checksum>
+        <Checksum>3F1D1C9E889F2702794BE7903000A287</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -387,7 +387,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/milestone1</Path>
-        <Checksum>36477E0CCC3B4CA3F6B36A26BBBB0901</Checksum>
+        <Checksum>CABA83AF59FD1113E448C41499ED181A</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -414,24 +414,24 @@
     </Templates>
     <CompilerItems>
       <C32-AS>
-        <Include value="../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
-        <Include value="../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/include"/>
+        <Include value="../../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
+        <Include value="../../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/include"/>
         <Include value="../src/system_config/milestone1"/>
       </C32-AS>
       <C32>
-        <Include value="C:/Users/Zea mays/Desktop/EmbeddedRepo/FlagRoverRepo/firmware/src"/>
-        <Include value="C:/Users/Zea mays/Desktop/EmbeddedRepo/FlagRoverRepo/firmware/src/system_config/milestone1"/>
-        <Include value="C:/Users/Zea mays/Desktop/EmbeddedRepo/FlagRoverRepo/firmware/src/milestone1"/>
-        <Include value="C:/microchip/harmony/v1_09/framework"/>
-        <Include value="C:/Users/Zea mays/Desktop/EmbeddedRepo/FlagRoverRepo/firmware/src/system_config/milestone1/framework"/>
-        <Include value="../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
-        <Include value="../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/include"/>
+        <Include value="C:\Users\Karthik Admin\Documents\Spring2017\Embedded\tagRoverGit\firmware\src"/>
+        <Include value="C:\Users\Karthik Admin\Documents\Spring2017\Embedded\tagRoverGit\firmware\src\system_config\milestone1"/>
+        <Include value="C:\Users\Karthik Admin\Documents\Spring2017\Embedded\tagRoverGit\firmware\src\milestone1"/>
+        <Include value="C:\microchip\harmony\v1_09\framework"/>
+        <Include value="C:\Users\Karthik Admin\Documents\Spring2017\Embedded\tagRoverGit\firmware\src\system_config\milestone1\framework"/>
+        <Include value="../../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
+        <Include value="../../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/include"/>
         <Include value="../src/system_config/milestone1"/>
         <Define value="__XC"/>
       </C32>
     </CompilerItems>
     <Libraries>
-      <Library value="../../../../../../../microchip/harmony/v1_09/bin/framework/peripheral/PIC32MX795F512L_peripherals.a"/>
+      <Library value="../../../../../../../../microchip/harmony/v1_09/bin/framework/peripheral/PIC32MX795F512L_peripherals.a"/>
     </Libraries>
   </Manifest>
 </configuration>
