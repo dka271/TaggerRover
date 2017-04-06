@@ -47,13 +47,48 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "ISR_Support.h"
 
+/* ADC Interrupt */
+   .extern  IntHandlerDrvAdc
+
+   .section	.vector_27,code, keep
+   .equ     __vector_dispatch_27, IntVectorDrvAdc
+   .global  __vector_dispatch_27
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  IntVectorDrvAdc
+
+IntVectorDrvAdc:
+    la    $26,  _IntHandlerDrvAdc         
+    jr    $26
+    nop
+	.end	IntVectorDrvAdc
+
+   .section	.DrvAdc_vector_text, code, keep
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  _IntHandlerDrvAdc
+
+_IntHandlerDrvAdc:
+    portSAVE_CONTEXT
+    la    s6,  IntHandlerDrvAdc
+    jalr  s6
+    nop
+    portRESTORE_CONTEXT
+    .end	_IntHandlerDrvAdc
+
+
+
 
 /* External Interrupt Instance 0 Interrupt */
    .extern  IntHandlerExternalInterruptInstance0
 
-   .section	.vector_19,code, keep
-   .equ     __vector_dispatch_19, IntVectorExternalInterruptInstance0
-   .global  __vector_dispatch_19
+   .section	.vector_15,code, keep
+   .equ     __vector_dispatch_15, IntVectorExternalInterruptInstance0
+   .global  __vector_dispatch_15
    .set     nomicromips
    .set     noreorder
    .set     nomips16
@@ -80,6 +115,40 @@ _IntHandlerExternalInterruptInstance0:
     nop
     portRESTORE_CONTEXT
     .end	_IntHandlerExternalInterruptInstance0
+
+
+/* External Interrupt Instance 1 Interrupt */
+   .extern  IntHandlerExternalInterruptInstance1
+
+   .section	.vector_19,code, keep
+   .equ     __vector_dispatch_19, IntVectorExternalInterruptInstance1
+   .global  __vector_dispatch_19
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  IntVectorExternalInterruptInstance1
+
+IntVectorExternalInterruptInstance1:
+    la    $26,  _IntHandlerExternalInterruptInstance1         
+    jr    $26
+    nop
+	.end	IntVectorExternalInterruptInstance1
+
+   .section	.ExternalInterruptInstance1_vector_text, code, keep
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  _IntHandlerExternalInterruptInstance1
+
+_IntHandlerExternalInterruptInstance1:
+    portSAVE_CONTEXT
+    la    s6,  IntHandlerExternalInterruptInstance1
+    jalr  s6
+    nop
+    portRESTORE_CONTEXT
+    .end	_IntHandlerExternalInterruptInstance1
 
 
 

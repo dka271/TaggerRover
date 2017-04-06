@@ -67,22 +67,107 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "communication_public.h"
 #include "flagcapture_public.h"
 #include "system_definitions.h"
+#include "motor.h"
+
+//Declare privates
+#define ADC_NUM_SAMPLE_PER_AVERAGE 16
+#define PIXY_CENTER_VALUE 512
+#define PIXY_THRESHOLD_VALUE 20
+#define DELAY_ADC 25
+#define LED_TIME 50
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: System Interrupt Vector Functions
 // *****************************************************************************
 // *****************************************************************************
+
+bool didITagTheEnemyFlagRover() {
+    if (CURRENT_FLAG_ROVER_REGION != 2) {
+        return true;
+    }
+    unsigned char xDiff = abs(FLAG_ROVER_X_COOR - (int)GetLocationX());
+    unsigned char yDiff = abs(FLAG_ROVER_X_COOR - (int)GetLocationY());
+    
+    if ((xDiff < 10) && (yDiff < 10)) {
+        return true;
+    }
+    return false;
+}
+
+bool ledIsOn = false;
+unsigned char ledOnTime = 0;
 void IntHandlerExternalInterruptInstance0(void)
 {
-    Nop();
+    if(didITagTheEnemyFlagRover){
+      LedSetOn();
+      ledIsOn = true;
+    }
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_EXTERNAL_3);
+}
+void IntHandlerExternalInterruptInstance1(void)
+{
+    if(didITagTheEnemyFlagRover){
+      LedSetOn();
+      ledIsOn = true;
+    }
     PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_EXTERNAL_4);
+}
+
+
+int incr = 0;
+bool flagDetected = false;
+
+void IntHandlerDrvAdc(void) {
+    ADC_SAMPLE pixy = 0;
+    uint8_t i = 0;
+
+    for (i = 0; i < ADC_NUM_SAMPLE_PER_AVERAGE; i ++) {
+        pixy += PLIB_ADC_ResultGetByIndex(ADC_ID_1, i);
+    }  
+
+    pixy = pixy / 16;
+        
+    if (incr == DELAY_ADC) {
+        if(abs(pixy - PIXY_CENTER_VALUE) <= PIXY_THRESHOLD_VALUE){
+            unsigned char msg[NAV_QUEUE_BUFFER_SIZE];
+            Nop();
+            msg[0] = (pixy & 0x00FF);
+            msg[1] = (pixy & 0xFF00) >> 8;
+            msg[NAV_SOURCE_ID_IDX] = NAV_PIXY_CAM_ID << NAV_SOURCE_ID_OFFSET;
+            msg[NAV_CHECKSUM_IDX] = navCalculateChecksum(msg);
+            navSendMsgFromISR(msg);
+            flagDetected = true;
+            PLIB_INT_SourceDisable(INT_ID_0, INT_SOURCE_ADC_1);
+            }
+        
+    } else {
+        incr++;
+    }
+
+
+
+
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_ADC_1);
+    if(!flagDetected){
+        PLIB_ADC_SampleAutoStartEnable(ADC_ID_1);
+    }
 }
 
 void IntHandlerDrvTmrInstance0(void) {
     dbgOutputLoc(DBG_LOC_TMR0_ISR_ENTER);
     
     //Sample the timer counters and send their values to the navigation queue
+    if(ledIsOn){
+        if(ledOnTime == LED_TIME){
+            LedSetOff();
+            ledOnTime = 0;
+            ledIsOn = false;
+        }
+        else{
+            ledOnTime++;
+        }
+    }
     unsigned short t3 = TMR3;
     unsigned short t5 = TMR5;
     unsigned char msg2[NAV_QUEUE_BUFFER_SIZE];

@@ -309,7 +309,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/milestone1</Path>
-        <Checksum>5B2413380DA43AB47C05B6B1BCA5B333</Checksum>
+        <Checksum>430BA2C23BF69B57C141F7E480DFAEF3</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -353,7 +353,7 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/milestone1</Path>
-        <Checksum>76C7B25EB716FF443DD9FF9D13B84933</Checksum>
+        <Checksum>183E48DEEBDF14DE8274F90A70D81455</Checksum>
       </Template>
       <Template>
         <Name>flagcapture.h</Name>
@@ -369,15 +369,21 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
+        <Name>drv_adc_static.c</Name>
+        <Path>Source Files/app/system_config/milestone1/framework/driver/adc/src</Path>
+        <Checksum>37BD8AA63188DC3D271F142615977D20</Checksum>
+        <ProjectFileChecksum>25991B1ED9EB97D2D62D0005D5AA3142</ProjectFileChecksum>
+      </Template>
+      <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/milestone1</Path>
-        <Checksum>EC8820EB27110F180924533950CB1B00</Checksum>
-        <ProjectFileChecksum>8EF68F1ACFFEF17562E6C1A07F6F6DFC</ProjectFileChecksum>
+        <Checksum>D0355A99C90C646EEF8304A11005BA0B</Checksum>
+        <ProjectFileChecksum>D94A8A8502C39380B81AB3E3A91066E2</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
         <Path>Source Files/app/system_config/milestone1</Path>
-        <Checksum>3F1D1C9E889F2702794BE7903000A287</Checksum>
+        <Checksum>05F4B16B83416C0A6C11D01015FB15FA</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -411,6 +417,12 @@
         <Path>Source Files/app/system_config/milestone1/framework/driver/tmr/src</Path>
         <Checksum>DA98AC517C4253466410091E4694C667</Checksum>
       </Template>
+      <Template>
+        <Name>drv_adc_static.h</Name>
+        <Path>Header Files/app/system_config/milestone1/framework/driver/adc</Path>
+        <Checksum>6DB79891CF9D81511FDCC1F92DDF6090</Checksum>
+        <ProjectFileChecksum>0FFC757351765BD565157C0E889F73C2</ProjectFileChecksum>
+      </Template>
     </Templates>
     <CompilerItems>
       <C32-AS>
@@ -419,11 +431,11 @@
         <Include value="../src/system_config/milestone1"/>
       </C32-AS>
       <C32>
-        <Include value="C:\Users\Karthik Admin\Documents\Spring2017\Embedded\tagRoverGit\firmware\src"/>
-        <Include value="C:\Users\Karthik Admin\Documents\Spring2017\Embedded\tagRoverGit\firmware\src\system_config\milestone1"/>
-        <Include value="C:\Users\Karthik Admin\Documents\Spring2017\Embedded\tagRoverGit\firmware\src\milestone1"/>
-        <Include value="C:\microchip\harmony\v1_09\framework"/>
-        <Include value="C:\Users\Karthik Admin\Documents\Spring2017\Embedded\tagRoverGit\firmware\src\system_config\milestone1\framework"/>
+        <Include value="C:/Users/Karthik Admin/Documents/Spring2017/Embedded/flagIntegration/firmware/src"/>
+        <Include value="C:/Users/Karthik Admin/Documents/Spring2017/Embedded/flagIntegration/firmware/src/system_config/milestone1"/>
+        <Include value="C:/Users/Karthik Admin/Documents/Spring2017/Embedded/flagIntegration/firmware/src/milestone1"/>
+        <Include value="C:/microchip/harmony/v1_09/framework"/>
+        <Include value="C:/Users/Karthik Admin/Documents/Spring2017/Embedded/flagIntegration/firmware/src/system_config/milestone1/framework"/>
         <Include value="../../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/include"/>
         <Include value="../src/system_config/milestone1"/>
