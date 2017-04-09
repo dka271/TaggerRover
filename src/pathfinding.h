@@ -249,6 +249,10 @@ void reconstructPath(unsigned char path[MAXIMUM_NUMBER_OF_IN_SIGHT_NODES], unsig
 bool isClosedSetEmpty();
 void sendPathToNavigationThread(unsigned char path[MAXIMUM_NUMBER_OF_IN_SIGHT_NODES]);
 unsigned char uniqueIDMapper(unsigned char startingID);
+void updateRegion(region tempRegion, unsigned char regionId);
+void initializeRegions();
+crossSquare convertFieldRegionToCrossSquare(fieldItem tempFieldItem);
+void storeFieldRegionInStack(fieldItem tempFieldItem);
 
 /*******************************************************************************
   Function:
