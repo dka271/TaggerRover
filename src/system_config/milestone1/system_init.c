@@ -205,15 +205,11 @@ void SYS_Initialize ( void* data )
     sysObj.drvI2C1 = DRV_I2C_Initialize(DRV_I2C_INDEX_1, (SYS_MODULE_INIT *)&drvI2C1InitData);
 
 
-    SYS_INT_VectorPrioritySet(INT_VECTOR_I2C3, INT_PRIORITY_LEVEL1);
-    SYS_INT_VectorSubprioritySet(INT_VECTOR_I2C3, INT_SUBPRIORITY_LEVEL0);
+    SYS_INT_VectorPrioritySet(INT_VECTOR_I2C5, INT_PRIORITY_LEVEL1);
+    SYS_INT_VectorSubprioritySet(INT_VECTOR_I2C5, INT_SUBPRIORITY_LEVEL0);
 
     SYS_INT_VectorPrioritySet(INT_VECTOR_I2C2, INT_PRIORITY_LEVEL1);
     SYS_INT_VectorSubprioritySet(INT_VECTOR_I2C2, INT_SUBPRIORITY_LEVEL0);
-
-
-    /* Initialize ADC */
-    DRV_ADC_Initialize();
 
     /*Initialize TMR0 */
     DRV_TMR0_Initialize();

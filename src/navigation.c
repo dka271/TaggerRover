@@ -128,7 +128,9 @@ void sendStartMessageToNavigationThread() {
 //State checker for line crossing
 unsigned char testMsg[SEND_QUEUE_BUFFER_SIZE];
 bool DoWeCrossLineQuestionMark(){
+    //This function just returns false, since this is in the countermeasure rover
     return false;
+    //Here lies the previous function. R.I.Pee
 }
 
 /******************************************************************************
@@ -146,6 +148,8 @@ unsigned int desiredSpeed = ROVER_SPEED_STOPPED;
 int ticksRemaining = ROVER_TICKS_REMAINING_NONE;
 int m1PID;
 int m2PID;
+//Countermeasure stuff
+int isCounterMeasuring = 0;
 //Line Sensing stuff
 int ignoringTape = 0;
 int ignoreTapeCount = 0;
@@ -187,6 +191,7 @@ void HandleColorSensorData(unsigned char ColorSensorID){
     }
     //END TESTING SECTION
     //These variables affect this function based on color sensor input
+    isCounterMeasuring = 0;
     bool csMeOnTape;
     bool csOtherOnTape;
     float orientTurn1;
@@ -473,6 +478,8 @@ void NAVIGATION_Tasks ( void )
     movementState = STATE_WAITING_FOR_GAME_START;
     locationState = CROSSED_0_LINES;
     SetDirectionForwards();
+    //Countermeasure stuff
+    LedSetOff();
     //I2C Initialization Stuff
     //Open the I2C
     int i2cCount = -100;//Set this low so the color sensors are guaranteed to receive power by the time we start initializing them
@@ -498,9 +505,7 @@ void NAVIGATION_Tasks ( void )
     DRV_HANDLE i2c2_handle = DRV_I2C_Open(DRV_I2C_INDEX_1, DRV_IO_INTENT_READWRITE);
     //Init the I2C state machine
     DRV_TCS_HandleColorSensor(NULL, COLOR_SENSOR_RESET_STATE_MACHINE);
-    //Open the ADC used for the flag sensing
-    DRV_ADC_Open();
-    PLIB_INT_SourceDisable(INT_ID_0, INT_SOURCE_ADC_1);
+    
 
     dbgOutputLoc(DBG_LOC_NAV_BEFORE_WHILE);
     while(1){
@@ -603,6 +608,7 @@ void NAVIGATION_Tasks ( void )
                     moveCurrentIdx = 0;
                     moveLastIdx = 0;
                     moveGoalIdx = 0xff;
+                    isCounterMeasuring = 1;
                 
                     //FOR TESTING, REMOVE LATER
                     if (MOTOR_PATHFINDING_INTEGRATION_TESTING){
@@ -636,6 +642,17 @@ void NAVIGATION_Tasks ( void )
                         PLIB_INT_SourceEnable(INT_ID_0, INT_SOURCE_ADC_1);
                         sawFlagOnce = true;
                     }
+                }
+                
+                //Handle Countermeasuring
+                if (isCounterMeasuring == 1){
+                    LedSetOn();
+                    isCounterMeasuring = 2;
+                }else if (isCounterMeasuring == 2){
+                    LedSetOff();
+                    isCounterMeasuring = 1;
+                }else if (isCounterMeasuring == 0){
+                    LedSetOff();
                 }
                 
                 //Handle remaining distance
@@ -803,6 +820,7 @@ void NAVIGATION_Tasks ( void )
                             //Drop paths that have bad position
                             addCommand = false;
                         }
+                        isCounterMeasuring = 0;
                         ticksRemaining = 0;
                         desiredSpeed = ROVER_SPEED_STOPPED;
                     }else if (seqNum == 130){

@@ -387,7 +387,7 @@ void calculateOffsetNodes(fieldItem tempFieldItem) {
         } else if (tempFieldItem.objectType >= 8) {
             //do nothing, offset is set correctly for this case (NODE_OFFSET)
         }
-        
+
         if (tempFieldItem.objectType == uniqueIDMapper(IDENTITY_OF_FRIENDLY_TAGGER_ROVER)) {
             FLAG_ROVER_X_COOR = tempFieldItem.centerX;
             FLAG_ROVER_Y_COOR = tempFieldItem.centerY;

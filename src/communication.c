@@ -303,28 +303,7 @@ void respondToFlagRoverRegionQuery(unsigned char from) {
     unsigned char source = 'f';
     
     unsigned char messageType = 'e';
-    sprintf(msg, "*{\"S\":\"%c\",\"T\":\"%c\",\"M\":\"%c\",\"R\":%d,\"C\":", source, dest, messageType, locationState);
-    
-    int checkSum = calculateJsonStringCheckSum(msg);
-    
-    sprintf(jsonFieldItemEnd, "%d}~", checkSum);
-    strcat(msg, jsonFieldItemEnd);
-    
-    unsigned char i;
-    for (i = 0; i < strlen(msg); i++) {
-        xQueueSendToBack(sendQueue, &msg[i], portMAX_DELAY);
-        PLIB_INT_SourceEnable(INT_ID_0, INT_SOURCE_USART_1_TRANSMIT);
-    }
-}
-
-void flagRoverEnteredNewZone() {
-    unsigned char msg[208];
-    unsigned char jsonFieldItemEnd[8];
-    unsigned char source = 'f';
-    unsigned char dest = 'a';
-    unsigned char messageType = 'e';
-    
-    sprintf(msg, "*{\"S\":\"%c\",\"T\":\"%c\",\"M\":\"%c\",\"R\":%d,\"C\":", source, dest, messageType, locationState);
+    sprintf(msg, "*{\"S\":\"%c\",\"T\":\"%c\",\"M\":\"%c\",\"C\":", source, dest, messageType);
     
     int checkSum = calculateJsonStringCheckSum(msg);
     
@@ -355,6 +334,7 @@ void COMMUNICATION_Tasks(void) {
     //            unsigned char receiveFromWifiBuffer[RECEIVE_BUFFER_SIZE];
     //            unsigned int receiveFromWifiBufferIdx = 0;
     int PreviousSequenceNumber = 0;
+    
     CURRENT_FLAG_ROVER_REGION = 0;
 
     dbgOutputLoc(DBG_LOC_COMM_BEFORE_WHILE);
