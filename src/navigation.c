@@ -643,18 +643,6 @@ void NAVIGATION_Tasks ( void )
                         sawFlagOnce = true;
                     }
                 }
-                
-                //Handle Countermeasuring
-                if (isCounterMeasuring == 1){
-                    LedSetOn();
-                    isCounterMeasuring = 2;
-                }else if (isCounterMeasuring == 2){
-                    LedSetOff();
-                    isCounterMeasuring = 1;
-                }else if (isCounterMeasuring == 0){
-                    LedSetOff();
-                }
-                
                 //Handle remaining distance
                 
                 if (GetMotorDirection() == ROVER_DIRECTION_LEFT){

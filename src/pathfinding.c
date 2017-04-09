@@ -159,10 +159,10 @@ void storeFieldRegionInStack(fieldItem tempFieldItem) {
 }
 
 crossSquare convertFieldRegionToCrossSquare(fieldItem tempFieldItem) {
-    short SlowX = tempFieldItem.centerX - (tempFieldItem.width / 2)+2;
-    short ShighX = tempFieldItem.centerX + (tempFieldItem.width / 2)-2;
-    short SlowY = tempFieldItem.centerY - (tempFieldItem.length / 2)+2;
-    short ShighY = tempFieldItem.centerY + (tempFieldItem.length / 2)-2;
+    short SlowX = tempFieldItem.centerX - (tempFieldItem.width / 2);
+    short ShighX = tempFieldItem.centerX + (tempFieldItem.width / 2);
+    short SlowY = tempFieldItem.centerY - (tempFieldItem.length / 2);
+    short ShighY = tempFieldItem.centerY + (tempFieldItem.length / 2);
     
     unsigned short lowX; 
     unsigned short highX; 

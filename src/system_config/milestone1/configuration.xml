@@ -372,7 +372,7 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/milestone1</Path>
         <Checksum>D2EC04AF1CAD5015E81E49A1A0829A56</Checksum>
-        <ProjectFileChecksum>BC7C56C1C88E197986B5BE0A181AE79F</ProjectFileChecksum>
+        <ProjectFileChecksum>E89D2E7E1BE836CBA85930D468BD7C42</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
@@ -419,11 +419,11 @@
         <Include value="../src/system_config/milestone1"/>
       </C32-AS>
       <C32>
-        <Include value="C:\Users\Ushan\Google Drive\LENOVO\Embedded\Repository\TaggerRoverTest1\firmware\src"/>
-        <Include value="C:\Users\Ushan\Google Drive\LENOVO\Embedded\Repository\TaggerRoverTest1\firmware\src\system_config\milestone1"/>
-        <Include value="C:\Users\Ushan\Google Drive\LENOVO\Embedded\Repository\TaggerRoverTest1\firmware\src\milestone1"/>
+        <Include value="C:\Users\Ushan\Google Drive\LENOVO\Embedded\Repository\TaggerRover\firmware\src"/>
+        <Include value="C:\Users\Ushan\Google Drive\LENOVO\Embedded\Repository\TaggerRover\firmware\src\system_config\milestone1"/>
+        <Include value="C:\Users\Ushan\Google Drive\LENOVO\Embedded\Repository\TaggerRover\firmware\src\milestone1"/>
         <Include value="C:\microchip\harmony\v1_09\framework"/>
-        <Include value="C:\Users\Ushan\Google Drive\LENOVO\Embedded\Repository\TaggerRoverTest1\firmware\src\system_config\milestone1\framework"/>
+        <Include value="C:\Users\Ushan\Google Drive\LENOVO\Embedded\Repository\TaggerRover\firmware\src\system_config\milestone1\framework"/>
         <Include value="../../../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../../../../../microchip/harmony/v1_09/third_party/rtos/FreeRTOS/Source/include"/>
         <Include value="../src/system_config/milestone1"/>
