@@ -239,18 +239,11 @@ void initializeRegions() {
     MAX_WIDTH_OF_FIELD = 26;//64;
     
     fieldItem tempFieldItem;
-    unsigned char objectType = 100;
-    unsigned char tempLength = regionList[CENTRAL_ZONE].length;
-    unsigned char tempWidth = regionList[CENTRAL_ZONE].width;
-    constructFieldItem(&tempFieldItem, objectType, 1, tempLength, tempWidth, (tempWidth/2), (tempLength/2), 90);
-    storeInFieldItemStack(tempFieldItem);
-    
-    objectType = 101;
-    tempLength = regionList[FAR_FLAG_ZONE].length;
-    tempWidth = regionList[FAR_FLAG_ZONE].width;
-    constructFieldItem(&tempFieldItem, objectType, 1, tempLength, tempWidth, (MAX_WIDTH_OF_FIELD-(tempWidth/2)), (MAX_LENGTH_OF_FIELD-(tempLength/2)), 90);
-    storeInFieldItemStack(tempFieldItem);
-    
+    unsigned char objectType = 101;
+    unsigned char tempLength = regionList[CLOSE_FLAG_ZONE].length;
+    unsigned char tempWidth = regionList[CLOSE_FLAG_ZONE].width;
+    constructFieldItem(&tempFieldItem, objectType, 1, tempLength, tempWidth, (regionList[CLOSE_DEFENSE_ZONE].width/2), (tempLength/2), 90);
+    storeFieldRegionInStack(tempFieldItem);
 }
 
 void updateRegion(region tempRegion, unsigned char regionId) {
@@ -281,9 +274,11 @@ void updateRegion(region tempRegion, unsigned char regionId) {
         regionList[CLOSE_DEFENSE_ZONE].x = regionList[CLOSE_DEFENSE_ZONE].x + (widthDiff/2);
         regionList[CLOSE_DEFENSE_ZONE].y = regionList[CLOSE_DEFENSE_ZONE].y + (lengthDiff/2);
         
+        regionList[CENTRAL_ZONE].width = tempRegion.width;
         regionList[CENTRAL_ZONE].x = regionList[CENTRAL_ZONE].x + widthDiff;
         regionList[CENTRAL_ZONE].y = regionList[CENTRAL_ZONE].y + lengthDiff;
         
+        regionList[FAR_DEFENSE_ZONE].width = tempRegion.width;
         regionList[FAR_DEFENSE_ZONE].x = regionList[FAR_DEFENSE_ZONE].x + widthDiff;
         regionList[FAR_DEFENSE_ZONE].y = regionList[FAR_DEFENSE_ZONE].y + lengthDiff;
         
@@ -301,6 +296,10 @@ void updateRegion(region tempRegion, unsigned char regionId) {
         regionList[CENTRAL_ZONE].x = regionList[CENTRAL_ZONE].x + (widthDiff/2);
         regionList[CENTRAL_ZONE].y = regionList[CENTRAL_ZONE].y + (lengthDiff/2);
         
+        regionList[CLOSE_DEFENSE_ZONE].width = tempRegion.width;
+        regionList[CLOSE_DEFENSE_ZONE].x = regionList[CLOSE_DEFENSE_ZONE].x + widthDiff;
+        
+        regionList[FAR_DEFENSE_ZONE].width = tempRegion.width;
         regionList[FAR_DEFENSE_ZONE].x = regionList[FAR_DEFENSE_ZONE].x + widthDiff;
         regionList[FAR_DEFENSE_ZONE].y = regionList[FAR_DEFENSE_ZONE].y + lengthDiff;
         
@@ -326,6 +325,12 @@ void updateRegion(region tempRegion, unsigned char regionId) {
         regionList[FAR_DEFENSE_ZONE].length = tempRegion.length;
         regionList[FAR_DEFENSE_ZONE].x = regionList[FAR_DEFENSE_ZONE].x + (widthDiff/2);
         regionList[FAR_DEFENSE_ZONE].y = regionList[FAR_DEFENSE_ZONE].y + (lengthDiff/2);
+        
+        regionList[CENTRAL_ZONE].width = tempRegion.width;
+        regionList[CENTRAL_ZONE].x = regionList[CENTRAL_ZONE].x + widthDiff;
+        
+        regionList[CLOSE_DEFENSE_ZONE].width = tempRegion.width;
+        regionList[CLOSE_DEFENSE_ZONE].x = regionList[CLOSE_DEFENSE_ZONE].x + widthDiff;
         
         regionList[FAR_FLAG_ZONE].x = regionList[FAR_FLAG_ZONE].x + widthDiff;
         regionList[FAR_FLAG_ZONE].y = regionList[FAR_FLAG_ZONE].y + lengthDiff;
