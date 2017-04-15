@@ -421,7 +421,7 @@ int DRV_TCS_HandleColorSensor(DRV_HANDLE i2c_handle, int ColorSensorNumber){
                         }else{
                             sprintf(testServerMsg, "*{Sensor 1: Clear = %d, Red = %d, Green = %d, Blue = %d}~", c, r, g, b);
                         }
-                        commSendMsgToWifiQueue(testServerMsg);
+//                        commSendMsgToWifiQueue(testServerMsg);
                     }
                     //END FOR TESTING
                 }else if (ColorSensorNumber == COLOR_SENSOR_ID_2){
@@ -453,7 +453,7 @@ int DRV_TCS_HandleColorSensor(DRV_HANDLE i2c_handle, int ColorSensorNumber){
                         }else{
                             sprintf(testServerMsg, "*{Sensor 2: Clear = %d, Red = %d, Green = %d, Blue = %d}~", c, r, g, b);
                         }
-                        commSendMsgToWifiQueue(testServerMsg);
+//                        commSendMsgToWifiQueue(testServerMsg);
                     }
                     //END FOR TESTING
                 }else if (ColorSensorNumber == COLOR_SENSOR_ID_3){
