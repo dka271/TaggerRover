@@ -1063,6 +1063,12 @@ unsigned char calculatePath() {
     if (monotonicAStar(path, start, goal)) {
 //        testingSendPathOverWifly(path);
         Nop();
+        //send notifier of no path found
+        if (PATHFINDING_TESTING){
+            unsigned char testMsg[SEND_QUEUE_BUFFER_SIZE];
+            sprintf(testMsg, "*No Path Found~");
+            commSendMsgToWifiQueue(testMsg);
+        }
         return 1;
     }
 //    testingSendPathOverWifly(path);
