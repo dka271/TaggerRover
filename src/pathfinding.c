@@ -736,9 +736,9 @@ int orientation(point p, point q, point r) {
 
 //Calls the line intersection function on each part of a crossSquare (p2 = topLeft, q2 = bottomRight)
 bool checkIntersectionOfLineAndCrossSquare(point p1, point q1, point p2, point q2) {
-    if (p2.x == NULL || p2.y == NULL || q2.x == NULL || q2.y == NULL) {
-        return true;
-    }
+//    if (p2.x == NULL || p2.y == NULL || q2.x == NULL || q2.y == NULL) {
+//        return true;
+//    }
     if (checkIntersectionOfTwoLines(p1, q1, p2, q2)) {
         return true;
     }
@@ -794,6 +794,7 @@ bool checkIfTwoNodesInSightOfEachOther(point point1, point point2) {
     
     for (i = 0; i < crossSquareStackTop; i++) { //subtract 2
         if (checkIntersectionOfLineAndCrossSquare(point1, point2, crossSquareStack[i].topLeft, crossSquareStack[i].bottomRight)) {
+            Nop();
             return false;
         }
     }
@@ -807,6 +808,9 @@ void createAdjacencyEdges() {
     unsigned char startingNumberOfEdges = 0;
 
     unsigned char curNumEdges;
+    if (halfHeartedAdjacencyList.nodes[0].x != '\0' && halfHeartedAdjacencyList.nodes[1].x != '\0') {
+        Nop();
+    }
     for (i = 0; i < currentNumberOfNodes; i++) {
         while (1) {
             if (halfHeartedAdjacencyList.edges[i][startingNumberOfEdges] == '\0') {
