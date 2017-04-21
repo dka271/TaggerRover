@@ -524,6 +524,10 @@ void COMMUNICATION_Tasks(void) {
                 //Handle other stuff
                 //Handle sending to Daniel's test servers
 				motorTestCommSend(receivemsg);
+            } else if (msgId == COMM_DEBUG_ID) { //For server defined tests
+                //Handle other stuff
+                //Handle sending to Daniel's test servers
+				commSendMsgToWifiQueue(receivemsg);
             }
         }
     }

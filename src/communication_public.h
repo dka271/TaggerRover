@@ -42,6 +42,7 @@ extern "C" {
 #define COMM_PATHFINDING_ID 1
 #define COMM_SEND_ID 2
 #define COMM_OTHER_ID 3 
+#define COMM_DEBUG_ID 4 
 
 #define SEND_QUEUE_BUFFER_SIZE 216 
 #define RECEIVE_BUFFER_SIZE 216 

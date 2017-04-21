@@ -84,7 +84,14 @@ bool didITagTheEnemyFlagRover() {
     unsigned char xDiff = abs(FLAG_ROVER_X_COOR - (int)GetLocationX());
     unsigned char yDiff = abs(FLAG_ROVER_Y_COOR - (int)GetLocationY());
     
-    if ((xDiff < 10) && (yDiff < 10)) {
+    unsigned char msg[COMM_QUEUE_BUFFER_SIZE];
+    msg[0] = xDiff;
+    msg[1] = yDiff;
+    msg[COMM_SOURCE_ID_IDX] = (COMM_DEBUG_ID & 0x00000003) << COMM_SOURCE_ID_OFFSET;
+    msg[COMM_CHECKSUM_IDX] = commCalculateChecksum(msg);
+    commSendMsgFromISR(msg);
+    
+    if ((xDiff < 2) && (yDiff < 2)) {
         return true;
     }
     return false;
@@ -114,7 +121,7 @@ void IntHandlerExternalInterruptInstance1(void)
 
 void IntHandlerDrvTmrInstance0(void) {
     dbgOutputLoc(DBG_LOC_TMR0_ISR_ENTER);
-    
+
     if(ledIsOn){
         if(ledOnTime == LED_TIME){
             LedSetOff();
