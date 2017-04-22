@@ -1067,6 +1067,7 @@ unsigned char calculatePath() {
     if (monotonicAStar(path, start, goal)) {
 //        testingSendPathOverWifly(path);
         Nop();
+        sendNoPathFoundToNavigationThread();
         //send notifier of no path found
         if (PATHFINDING_TESTING){
             unsigned char testMsg[SEND_QUEUE_BUFFER_SIZE];
