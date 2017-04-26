@@ -104,7 +104,7 @@ unsigned char ledOnTime = 0;
 void IntHandlerExternalInterruptInstance0(void)
 {
     Nop();
-    if(didITagTheEnemyFlagRover){
+    if(didITagTheEnemyFlagRover()){
       LedSetOn();
       ledIsOn = true;
     }
@@ -114,7 +114,7 @@ void IntHandlerExternalInterruptInstance0(void)
 
 void IntHandlerExternalInterruptInstance1(void)
 {
-    if(didITagTheEnemyFlagRover){
+    if(didITagTheEnemyFlagRover()){
       LedSetOn();
       ledIsOn = true;
     }
