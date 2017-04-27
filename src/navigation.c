@@ -364,7 +364,7 @@ void HandleColorSensorData(unsigned char ColorSensorID){
                 }
             }else if (csMeOnTape && !ignoringTape){
                 //Back up
-                AddMovement(cm2tick(4), ROVER_DIRECTION_BACKWARDS);
+                AddMovement(cm2tickF(4.5), ROVER_DIRECTION_BACKWARDS);
                 SetMovementGoal();
                 ignoringTape = 1;
                 ignoreTapeCount = 20;
@@ -588,7 +588,9 @@ void NAVIGATION_Tasks ( void )
             //Handle a specific message
             if (msgId == NAV_TIMER_COUNTER_3_ID){
                 //Motor 2 Encoder Message Handler
-                speed2 = (receivemsgint & 0x0000ffff) - previousValue2;
+                if ((receivemsgint & 0x0000ffff) >= previousValue2){
+                    speed2 = (receivemsgint & 0x0000ffff) - previousValue2;
+                }
                 previousValue2 = receivemsgint & 0x0000ffff;
                 
                 //Handle path controls
@@ -629,7 +631,9 @@ void NAVIGATION_Tasks ( void )
                 m2PID = PID2(desiredSpeed, speed2);
             }else if (msgId == NAV_TIMER_COUNTER_5_ID){
                 //Motor 2 Encoder Message Handler
-                speed1 = (receivemsgint & 0x0000ffff) - previousValue1;
+                if ((receivemsgint & 0x0000ffff) >= previousValue1){
+                    speed1 = (receivemsgint & 0x0000ffff) - previousValue1;
+                }
                 previousValue1 = receivemsgint & 0x0000ffff;
                 
                 //Handle remaining distance
