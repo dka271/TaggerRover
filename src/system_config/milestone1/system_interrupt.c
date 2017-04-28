@@ -78,12 +78,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 
 bool didITagTheEnemyFlagRover() {
-    unsigned char threshold = 6;
+    unsigned char threshold = 12;
     if (CURRENT_FLAG_ROVER_REGION == CROSSED_0_LINES) {
-        threshold = 4;
+        threshold = 8;
     }
-    unsigned char xDiff = abs(FLAG_ROVER_X_COOR - (int)GetLocationX());
-    unsigned char yDiff = abs(FLAG_ROVER_Y_COOR - (int)GetLocationY());
+    unsigned char xDiff = abs((FLAG_ROVER_X_COOR*2) - (int)GetLocationX());
+    unsigned char yDiff = abs((FLAG_ROVER_Y_COOR*2) - (int)GetLocationY());
     
 //    unsigned char msg[COMM_QUEUE_BUFFER_SIZE];
 //    msg[0] = xDiff;
