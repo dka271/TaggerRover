@@ -812,7 +812,7 @@ void NAVIGATION_Tasks ( void )
                                         //On center zone
                                         SetOrientation(90);
                                         orientationReceived = true;
-                                    }else if (startX <= 14 && startY >= 30 && startY <= ((CenterZone.y - (CenterZone.width + 4)) << 1)){
+                                    }else if (startX <= 14 && startY >= 30 && startY <= (((CenterZone.y - (CenterZone.width >> 1)) << 1) - 8)){
                                         //On close sensor zone
                                         if (INVERTED_X_AXIS){
                                             SetOrientation(180);
@@ -820,7 +820,7 @@ void NAVIGATION_Tasks ( void )
                                             SetOrientation(0);
                                         }
                                         orientationReceived = true;
-                                    }else if (startX >= ((CenterZone.length - 7) << 1) && startY >= 30 && startY <= ((CenterZone.y - (CenterZone.width + 4)) << 1)){
+                                    }else if (startX >= ((CenterZone.length - 7) << 1) && startY >= 30 && startY <= (((CenterZone.y - (CenterZone.width >> 1)) << 1) - 8)){
                                         //On far sensor zone
                                         if (INVERTED_X_AXIS){
                                             SetOrientation(0);
