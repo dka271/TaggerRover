@@ -673,7 +673,7 @@ void NAVIGATION_Tasks ( void )
                     commSendMsg(commMsg);
                     pathfindingCount = 0;
                     //Update position
-                    sprintf(commMsg,"*{\"S\":\"t\",\"T\":\"a\",\"M\":\"p\",\"N\":1,\"F\":[3,12,6,6,%d,%d,0],\"C\":1}~", (int) (GetLocationX() / 2), (int) (GetLocationY() / 2));
+                    sprintf(commMsg,"*{\"S\":\"t\",\"T\":\"a\",\"M\":\"p\",\"N\":1,\"F\":[3,12,6,6,%d,%d,%d],\"C\":1}~", (int) (GetLocationX() / 2), (int) (GetLocationY() / 2), (int) GetOrientation());
                     commSendMsgToWifiQueue(commMsg);
                 }
                 
