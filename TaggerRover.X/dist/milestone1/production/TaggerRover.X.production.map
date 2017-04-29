@@ -3257,7 +3257,7 @@ END GROUP
  .debug_str     0x00000bf7        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(_udivdi3.o)
  .debug_str     0x00000bf7        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(_umoddi3.o)
 
-.debug_loc      0x00000000    0x15dfa
+.debug_loc      0x00000000    0x15dfb
  *(.debug_loc)
  .debug_loc     0x00000000      0xb52 build/milestone1/production/_ext/1864120335/drv_tmr_static.o
  .debug_loc     0x00000b52      0x5cf build/milestone1/production/_ext/1864120335/drv_tmr_mapping.o
@@ -3267,35 +3267,35 @@ END GROUP
  .debug_loc     0x00001da9       0x49 build/milestone1/production/_ext/383799649/sys_clk_static.o
  .debug_loc     0x00001df2      0xecf build/milestone1/production/_ext/956857457/sys_ports_static.o
  .debug_loc     0x00002cc1       0x21 build/milestone1/production/_ext/1555642536/system_init.o
- .debug_loc     0x00002ce2      0x16a build/milestone1/production/_ext/1555642536/system_interrupt.o
- .debug_loc     0x00002e4c       0x34 build/milestone1/production/_ext/1555642536/rtos_hooks.o
- .debug_loc     0x00002e80       0x89 build/milestone1/production/_ext/1360937237/app.o
- .debug_loc     0x00002f09      0xe0f build/milestone1/production/_ext/1360937237/navigation.o
- .debug_loc     0x00003d18      0xd49 build/milestone1/production/_ext/1360937237/communication.o
- .debug_loc     0x00004a61       0xd5 build/milestone1/production/_ext/1360937237/ms2test.o
- .debug_loc     0x00004b36     0x1aa1 build/milestone1/production/_ext/1360937237/pathfinding.o
- .debug_loc     0x000065d7       0xaa build/milestone1/production/_ext/1360937237/flagcapture.o
- .debug_loc     0x00006681       0x14 build/milestone1/production/_ext/1360937237/mapping.o
- .debug_loc     0x00006695       0xaa build/milestone1/production/_ext/1360937237/linesensing.o
- .debug_loc     0x0000673f     0x19a6 build/milestone1/production/_ext/1360937237/myi2c.o
- .debug_loc     0x000080e5     0x77f8 build/milestone1/production/_ext/1942690078/drv_i2c.o
- .debug_loc     0x0000f8dd      0x40c build/milestone1/production/_ext/1720177678/osal_freertos.o
- .debug_loc     0x0000fce9       0xf0 build/milestone1/production/_ext/758908392/sys_devcon.o
- .debug_loc     0x0000fdd9       0xec build/milestone1/production/_ext/758908392/sys_devcon_pic32mx.o
- .debug_loc     0x0000fec5       0x8d build/milestone1/production/_ext/526036082/sys_int_pic32.o
- .debug_loc     0x0000ff52       0x49 build/milestone1/production/_ext/1042102804/heap_1.o
- .debug_loc     0x0000ff9b       0xea build/milestone1/production/_ext/1270971519/port.o
- .debug_loc     0x00010085       0x31 build/milestone1/production/_ext/1094534103/list.o
- .debug_loc     0x000100b6      0xeb0 build/milestone1/production/_ext/1094534103/queue.o
- .debug_loc     0x00010f66     0x1471 build/milestone1/production/_ext/1094534103/tasks.o
- .debug_loc     0x000123d7      0x8ea build/milestone1/production/_ext/1094534103/event_groups.o
- .debug_loc     0x00012cc1      0x18a build/milestone1/production/_ext/1360937237/debug.o
- .debug_loc     0x00012e4b      0xf3b build/milestone1/production/_ext/1360937237/motor.o
- .debug_loc     0x00013d86      0xb00 build/milestone1/production/_ext/1360937237/myjson.o
- .debug_loc     0x00014886       0x59 build/milestone1/production/_ext/1360937237/electromagnet.o
- .debug_loc     0x000148df       0x74 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
- .debug_loc     0x00014953      0xa6a c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(_udivdi3.o)
- .debug_loc     0x000153bd      0xa3d c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(_umoddi3.o)
+ .debug_loc     0x00002ce2      0x16b build/milestone1/production/_ext/1555642536/system_interrupt.o
+ .debug_loc     0x00002e4d       0x34 build/milestone1/production/_ext/1555642536/rtos_hooks.o
+ .debug_loc     0x00002e81       0x89 build/milestone1/production/_ext/1360937237/app.o
+ .debug_loc     0x00002f0a      0xe0f build/milestone1/production/_ext/1360937237/navigation.o
+ .debug_loc     0x00003d19      0xd49 build/milestone1/production/_ext/1360937237/communication.o
+ .debug_loc     0x00004a62       0xd5 build/milestone1/production/_ext/1360937237/ms2test.o
+ .debug_loc     0x00004b37     0x1aa1 build/milestone1/production/_ext/1360937237/pathfinding.o
+ .debug_loc     0x000065d8       0xaa build/milestone1/production/_ext/1360937237/flagcapture.o
+ .debug_loc     0x00006682       0x14 build/milestone1/production/_ext/1360937237/mapping.o
+ .debug_loc     0x00006696       0xaa build/milestone1/production/_ext/1360937237/linesensing.o
+ .debug_loc     0x00006740     0x19a6 build/milestone1/production/_ext/1360937237/myi2c.o
+ .debug_loc     0x000080e6     0x77f8 build/milestone1/production/_ext/1942690078/drv_i2c.o
+ .debug_loc     0x0000f8de      0x40c build/milestone1/production/_ext/1720177678/osal_freertos.o
+ .debug_loc     0x0000fcea       0xf0 build/milestone1/production/_ext/758908392/sys_devcon.o
+ .debug_loc     0x0000fdda       0xec build/milestone1/production/_ext/758908392/sys_devcon_pic32mx.o
+ .debug_loc     0x0000fec6       0x8d build/milestone1/production/_ext/526036082/sys_int_pic32.o
+ .debug_loc     0x0000ff53       0x49 build/milestone1/production/_ext/1042102804/heap_1.o
+ .debug_loc     0x0000ff9c       0xea build/milestone1/production/_ext/1270971519/port.o
+ .debug_loc     0x00010086       0x31 build/milestone1/production/_ext/1094534103/list.o
+ .debug_loc     0x000100b7      0xeb0 build/milestone1/production/_ext/1094534103/queue.o
+ .debug_loc     0x00010f67     0x1471 build/milestone1/production/_ext/1094534103/tasks.o
+ .debug_loc     0x000123d8      0x8ea build/milestone1/production/_ext/1094534103/event_groups.o
+ .debug_loc     0x00012cc2      0x18a build/milestone1/production/_ext/1360937237/debug.o
+ .debug_loc     0x00012e4c      0xf3b build/milestone1/production/_ext/1360937237/motor.o
+ .debug_loc     0x00013d87      0xb00 build/milestone1/production/_ext/1360937237/myjson.o
+ .debug_loc     0x00014887       0x59 build/milestone1/production/_ext/1360937237/electromagnet.o
+ .debug_loc     0x000148e0       0x74 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
+ .debug_loc     0x00014954      0xa6a c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(_udivdi3.o)
+ .debug_loc     0x000153be      0xa3d c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(_umoddi3.o)
 
 .debug_macinfo
  *(.debug_macinfo)
