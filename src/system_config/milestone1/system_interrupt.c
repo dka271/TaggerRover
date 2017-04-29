@@ -78,9 +78,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 
 bool didITagTheEnemyFlagRover() {
-    unsigned char threshold = 12;
+    unsigned char threshold = 24;
     if (CURRENT_FLAG_ROVER_REGION == CROSSED_0_LINES) {
-        threshold = 8;
+        threshold = 18;
     }
     unsigned char xDiff = abs((FLAG_ROVER_X_COOR*2) - (int)GetLocationX());
     unsigned char yDiff = abs((FLAG_ROVER_Y_COOR*2) - (int)GetLocationY());

@@ -593,6 +593,11 @@ void calculateOffsetNodes(fieldItem tempFieldItem) {
                 currentNumberOfNodes++;
             }
         }
+
+        if (tempFieldItem.objectType == IDENTITY_OF_ENEMY_FLAG_ROVER){//uniqueIDMapper(IDENTITY_OF_FRIENDLY_TAGGER_ROVER)) {
+            FLAG_ROVER_X_COOR = tempFieldItem.centerX;
+            FLAG_ROVER_Y_COOR = tempFieldItem.centerY;
+        }
         
     }else {
     
